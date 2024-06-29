@@ -1,4 +1,3 @@
-
 #include "SDL2/SDL_error.h"
 #include "SDL2/SDL_events.h"
 #include "SDL2/SDL_keycode.h"
@@ -6,6 +5,10 @@
 #include "SDL2/SDL_video.h"
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <ostream>
+
+#include "pTSpace.h"
+#include "support/pTSLazyMacros.h"
 
 int main(int argc, char* argv[])
 {
@@ -37,6 +40,7 @@ int main(int argc, char* argv[])
 
     bool quit = false;
     SDL_Event event;
+
     while(!quit) {
         while (SDL_PollEvent(&event)) {
             if(event.type == SDL_QUIT) {
