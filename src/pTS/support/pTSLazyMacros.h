@@ -6,6 +6,8 @@
 
 #define pTS_REF
 
+#define pTS_ABS 
+
 //# Lazy zone
 
 #define OVR                                                         override
@@ -46,8 +48,10 @@ MEM:                                                                \
 GLB:                                                                \
   GET_SET_CREATOR(_TYPE_, _NAME_, _NAME_)                           \
 
+#define END_CREATE_CLASS                                            };
+
 #define BEGIN_CREATE_REF_CLASS(_CLASS_NAME_, _REF_CLASS_, ...)      \
-class pTS_REF _CLASS_NAME_ : GLB _REF_CLASS_, ##__VAR_ARGS__        \
+class pTS_REF _CLASS_NAME_ : GLB _REF_CLASS_, ##__VA_ARGS__         \
 {                                                                   \
 GLB:                                                                \
   VIR bool init();                                                  \
@@ -58,7 +62,6 @@ GLB:                                                                \
 PRV:                                                                \
   const STR _class_name = #_CLASS_NAME_;                            \
 
-#define END_CREATE_REF_CLASS                                        };
 
 #define pTS_LOG(_MSG_, ...)                                         \
 std::cout << _MSG_ << #__VA_ARGS__ << std::endl;                    \
