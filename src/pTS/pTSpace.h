@@ -1,7 +1,9 @@
 #pragma once
 
+//core
+#include "core/pTSCoreExporter.h"
+
 // support
-#include "support/pTSMacros.h"
 #include "support/pTSupportExporter.h"
 
 NS_pTS_BEGIN

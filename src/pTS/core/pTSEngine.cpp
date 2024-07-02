@@ -1,6 +1,6 @@
+#pragma once
 
 #include "pTSEngine.h"
-#include "support/pTSMacros.h"
 
 NS_pTS_BEGIN
 
@@ -9,14 +9,18 @@ bool pTSEngine::init() {
 }
 
 STR pTSEngine::to_string() {
-    return "";
+    return "Hello";
 }
-void pTSEngine::log() {
 
+void pTSEngine::log() {
+    const STR msg = this->_class_name + this->to_string();
+    std::cout << msg << std::endl;
 }
+
 pTSEngine::~pTSEngine() {
 
 }
+
 pTSEngine::pTSEngine() {
 
 }

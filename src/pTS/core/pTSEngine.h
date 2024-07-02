@@ -1,10 +1,7 @@
 #pragma once
 
-#include "support/pTSLazyMacros.h"
-#include "support/pTSMacros.h"
-#include "support/pTSingleton.h"
-
 #include <iostream>
+#include "support/pTSupportExporter.h"
 
 NS_pTS_BEGIN
 

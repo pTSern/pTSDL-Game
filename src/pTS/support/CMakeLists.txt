@@ -1,27 +1,9 @@
-if(ANDROID)
-elseif(WIN32)
-  set(pTS_SUPPORT_SPECIFIC_HDR)
-  set(pTS_SUPPORT_SPECIFIC_SRC)
-elseif(APPLE)
-  if(MACOSX)
-    set(pTS_SUPPORT_SPECIFIC_HDR)
-    set(pTS_SUPPORT_SPECIFIC_SRC)
-  elseif(IOS)
-    set(pTS_SUPPORT_SPECIFIC_HDR)
-    set(pTS_SUPPORT_SPECIFIC_SRC)
-  endif()
-elseif(LINUX)
-  set(pTS_SUPPORT_SPECIFIC_HDR)
-  set(pTS_SUPPORT_SPECIFIC_SRC)
-endif()
+cmake_minimum_required(VERSION 3.10)
 
+project(support)
 
-set(pTS_SUPPORT_HDR
-  ${pTS_SUPPORT_SPECIFIC_HDR}
-  support/pTSMacros.h
-  support/pTSLazyMacros.h
-)
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
-set(pTS_SUPPORT_SRC
-  ${pTS_SUPPORT_SPECIFIC_SRC}
-)
+add_library(support ${SOURCES})
+
+target_include_directories(support PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

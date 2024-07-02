@@ -1,15 +1,18 @@
-set(pTSX_VERSION 0.0)
+cmake_minimum_required(VERSION 3.10)
 
-set(pTS_HDR
-    pTSpace.h
-    ${pTS_SUPPORT_HDR}
-)
+project(pTS)
 
-set(pTS_SRC
-    pTSpace.cpp
-    ${pTS_SUPPORT_SRC}
-)
+# C++ standard version
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_library(pTS STATIC pTSpace.cpp)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+add_subdirectory(core)
+add_subdirectory(support)
+
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+
+add_library(pTS ${SOURCES})
 
 target_include_directories(pTS PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

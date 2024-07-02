@@ -8,7 +8,6 @@
 #include <ostream>
 
 #include "pTSpace.h"
-#include "support/pTSLazyMacros.h"
 
 int main(int argc, char* argv[])
 {
@@ -40,6 +39,8 @@ int main(int argc, char* argv[])
 
     bool quit = false;
     SDL_Event event;
+
+    pTS::pTSEngine::get_instance()->log();
 
     while(!quit) {
         while (SDL_PollEvent(&event)) {
